@@ -136,13 +136,8 @@ async def letter(ctx, num):
     '5. 7월 30일',
     '6. 7월 31일']
 
-    letter=letters[num]
-    await ctx.send(letter)
-
-    now=datetime.datetime.today()
-    dis_day=datetime.strptime("20230125", "%Y%m%d")
-    remain_day=dis_day-now
-
+    selected=letters[num]
+    await ctx.send(selected)
 
 token=os.environ['bot_token']
 bot.run(token)
