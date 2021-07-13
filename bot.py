@@ -135,6 +135,7 @@ async def letter(ctx, num):
     '5. 7월 30일',
     '6. 7월 31일']
 
+    await ctx.send(letters[num])
     now=datetime.datetime.today()
     dis_day=datetime.strptime("20230125", "%Y%m%d")
     remain_day=dis_day-now
