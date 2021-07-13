@@ -14,6 +14,7 @@ async def on_ready():
     await bot.change_presence(activity=discord.Game(name="여니 생각"))
     print('logged in as \nname: {}\n  id: {}'.format(bot.user.name, bot.user.id))
     print('='*80)
+    ctx.send("차니 접속 완료.")
 
 @bot.command()
 async def empty(ctx, *, txt=None):
@@ -136,13 +137,11 @@ async def letter(ctx, num):
     '6. 7월 31일']
 
     await ctx.send(letters[num])
+
     now=datetime.datetime.today()
     dis_day=datetime.strptime("20230125", "%Y%m%d")
     remain_day=dis_day-now
-    
-@bot.command(){
-async def test(ctx):
-    await ctx.send("v1")
-    
+
+
 token=os.environ['bot_token']
 bot.run(token)
