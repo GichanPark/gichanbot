@@ -42,14 +42,28 @@ async def love(ctx):
     random.seed(a=None)
     selected=love_list[random.randrange(len(love_list))]
     await ctx.send(selected)
+    
+@bot.command(aliases=['귀여워', '귀여웡', '기여엉', '겨웡', '겨워', '겹다'])
+async def cute(ctx):
+    cute_list=['헤헤 여니도 귀여웡',
+    '귀여워 여니야',
+    '여니야 귀여워',
+    '여니 귀여워어어어어어ㅓ억',
+    '이뿌니 귀여워잇~❤',
+    '여니 고마웡❤',
+    '귀여웟!!!😀❤']
 
+    random.seed(a=None)
+    selected=cute_list[random.randrange(len(cute_list))]
+    await ctx.send(selected)
+    
 @bot.command(aliases=['골라줘', '뭐먹지'])
 async def select(ctx, *txt):
     random.seed(a=None)
     selected=txt[random.randrange(len(txt))]
     await ctx.send(selected+' 어때?')
     
-@bot.command(aliases=['전역 언제야?', '전역', '꽃신 언제 신어?'])
+@bot.command(aliases=['전역 언제야?', '전역', '꽃신언제신어?'])
 async def discharge(ctx):
     now=datetime.now()
     dis_day=datetime.strptime("20230125", "%Y%m%d")
@@ -137,6 +151,12 @@ async def letter(ctx, num):
     '6. 7월 31일']
 
     selected=letters[num]
+    await ctx.send(selected)
+
+@bot.command()
+async def test(ctx, num):
+    list=['일', '이', '삼']
+    selected=list[num]
     await ctx.send(selected)
 
 token=os.environ['bot_token']
