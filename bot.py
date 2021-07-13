@@ -141,6 +141,10 @@ async def letter(ctx, num):
     remain_day=dis_day-now
 token=os.environ['bot_token']
 bot.run(token)
+
+@bot.command(){
+ async def test(ctx):
+     await ctx.send("v1")
 #bot.run("ODYwMzE5NTMzNTIzNzk1OTY4.YN5hAA.c7a3cAU8IRq18lfwqdkLjL_dMOY")
 
 # import discord
