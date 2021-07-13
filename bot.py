@@ -156,8 +156,9 @@ async def letter(ctx, num):
 @bot.command()
 async def test(ctx, num):
     list=['일', '이', '삼']
-    selected=list[num]
+    selected=list[int(num)]
     await ctx.send(selected)
+    await ctx.send("v1")
 
 token=os.environ['bot_token']
 bot.run(token)
