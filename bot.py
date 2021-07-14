@@ -150,15 +150,22 @@ async def letter(ctx, num):
     '5. 7월 30일',
     '6. 7월 31일']
 
-    selected=letters[num]
+    selected=letters[int(num-1)]
     await ctx.send(selected)
 
 @bot.command()
-async def test(ctx, num):
-    list=['일', '이', '삼']
-    selected=list[int(num)]
-    await ctx.send(selected)
-    await ctx.send("v1")
+async def test(ctx):
+    now_hour=time.strftime('H', time.localtime(time.time()))
+    await ctx.send(now_hour)
+    if(now_hour>=12):
+        await ctx.send('오후')
+    if(now_hour<12):
+        await ctx.send('오전')
+
+@bot.command(aliases=['머해', '뭐해', '뭐하고이써', '뭐하고있어', '머해?', '뭐해?', '머행', '뭐행'])
+async def what(ctx):
+    now_hour=time.strftime('H', time.localtime(time.time()))
+    if()
 
 token=os.environ['bot_token']
 bot.run(token)
