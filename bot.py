@@ -157,6 +157,8 @@ async def letter(ctx, num):
 async def test(ctx):
     now_hour=time.strftime('%H', time.localtime(time.time()))
     now_minute=time.strftime(('%M', time.localtime(time.time())))
+    msg='test'
+    await ctx.send(f'{msg}')
     await ctx.send(f'{now_hour}시{now_minute}분')
     if(now_hour>=12):
         await ctx.send('오후')
