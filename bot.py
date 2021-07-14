@@ -160,7 +160,7 @@ async def test(ctx):
     await ctx.send(f'{now_hour}시{now_minute}분')
     if(now_hour>=12):
         await ctx.send('오후')
-    if(now_hour<12):
+    else:
         await ctx.send('오전')
 
 # @bot.command(aliases=['머해', '뭐해', '뭐하고이써', '뭐하고있어', '머해?', '뭐해?', '머행', '뭐행'])
