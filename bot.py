@@ -156,7 +156,8 @@ async def letter(ctx, num):
 @bot.command()
 async def test(ctx):
     now_hour=time.strftime('%H', time.localtime(time.time()))
-    await ctx.send(now_hour)
+    now_minute=time.strftime(('%M', time.localtime(time.time())))
+    await ctx.send(f'{now_hour}시{now_minute}분')
     if(now_hour>=12):
         await ctx.send('오후')
     if(now_hour<12):
