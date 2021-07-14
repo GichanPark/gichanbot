@@ -155,17 +155,17 @@ async def letter(ctx, num):
 
 @bot.command()
 async def test(ctx):
-    now_hour=time.strftime('H', time.localtime(time.time()))
+    now_hour=time.strftime('%H', time.localtime(time.time()))
     await ctx.send(now_hour)
     if(now_hour>=12):
         await ctx.send('오후')
     if(now_hour<12):
         await ctx.send('오전')
 
-#@bot.command(aliases=['머해', '뭐해', '뭐하고이써', '뭐하고있어', '머해?', '뭐해?', '머행', '뭐행'])
-#async def what(ctx):
-#    now_hour=time.strftime('H', time.localtime(time.time()))
-    #if()
+# @bot.command(aliases=['머해', '뭐해', '뭐하고이써', '뭐하고있어', '머해?', '뭐해?', '머행', '뭐행'])
+# async def what(ctx):
+#     now_hour=time.strftime('H', time.localtime(time.time()))
+#     if()
 
 token=os.environ['bot_token']
 bot.run(token)
