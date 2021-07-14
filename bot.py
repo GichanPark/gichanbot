@@ -158,9 +158,11 @@ async def test(ctx):
     await ctx.send('test')
     now_hour=time.strftime('%H', time.localtime(time.time()))
     now_minute=time.strftime(('%M', time.localtime(time.time())))
+    await ctx.send(now_hour)
+    await ctx.send(now_minute)
     msg=f'{now_hour}시{now_minute}분'
     await ctx.send(msg)
-    if(now_hour>=12):
+    if(int(now_hour)>=12):
         await ctx.send('오후')
     else:
         await ctx.send('오전')
