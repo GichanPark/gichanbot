@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 import youtube_dl
-from datetime import datetime
+import datetime
 import asyncio
 import time
 import random
@@ -14,7 +14,6 @@ async def on_ready():
     await bot.change_presence(activity=discord.Game(name="여니 생각"))
     print('logged in as \nname: {}\n  id: {}'.format(bot.user.name, bot.user.id))
     print('='*80)
-    ctx.send("차니 접속 완료.")
 
 @bot.command()
 async def empty(ctx, *, txt=None):
@@ -142,16 +141,27 @@ async def hurt(ctx):
     await ctx.send('여니 아픈 곳 호오호오,,,, 우리 애기 아프지 망,,,,,,,,')
 
 @bot.command(aliases=['편지', '할 말'])
-async def letter(ctx, num):
+async def letter(ctx, txt):
     letters=['1. 7월 26일',
     '2. 7월 27일',
     '3. 7월 28일',
     '4. 7월 29일',
     '5. 7월 30일',
     '6. 7월 31일']
+    
+    start=datetime.datetime(2021, 7, 26)
+    today=datetime.datetime.today()
+    sub=today-start
+    start_s=start.strftime('%Y-%m-%d')
+    today_s=today.strftime('%Y-%m-%d')
+    sub_i=int(sub.days)+1
+    await ctx.send(f'입영일:{start_s}, 오늘:{today_s}, 입대: D+{sub_i}')
 
-    selected=letters[int(num-1)]
-    await ctx.send(selected)
+    if txt=='전체' or txt=='모두':
+        for i in range(sub_i):
+            await ctx.send(letters[i])
+    elif txt=='오늘':
+        await ctx.send(letters[sub_i-1])
 
 @bot.command()
 async def test(ctx):
@@ -173,7 +183,7 @@ async def order(ctx):
     embed.add_field(name='hello', value='[\'안녕\', \'hi\', \'안녕하세요\', \'안뇽\', \'하잉\', \'하이\']\n군인기찬과 인사를 할 수 있다.', inline=False)
     embed.add_field(name='love', value='[\'사랑해\', \'사랑\', \'러브\', \'조아해\', \'좋아해\', \'사랑행\', \'좋아행\', \'조아행\']\n군인기찬과 사랑을 나눌 수 있다.', inline=False)
     embed.add_field(name='cute', value='[\'귀여워\', \'귀여웡\', \'기여엉\', \'겨웡\', \'겨워\', \'겹다\']\n군인기찬과 귀엽다는 말을 주고 받는다.', inline=False)
-    embed.add_field(name='select', value='[\'골라줘\', \'뭐먹지\', \'골라봐\']\n선택장애 발생시에 군인기찬에게 고르라고 시킬 수 있다.\n여러개도 가능하다', inline=False)
+    embed.add_field(name='select', value='[\'골라줘\', \'뭐먹지\', \'골라봐\']\n선택장애 발생시에 군인기찬에게 고르라고 시킬 수 있다.\n여러개도 가능하다.', inline=False)
     embed.add_field(name='discharge', value='[\'전역 언제야?\', \'전역\', \'꽃신언제신어?\']\n군인기찬의 전역날짜를 볼 수 있다.', inline=False)
     embed.add_field(name='info', value='[\'정보\']\n군인기찬의 정보를 볼 수 있다.', inline=False)
     embed.add_field(name='join', value='[\'들어와\']\n여니가 현재 위치한 음성채널로 군인기찬을 소환한다.', inline=False)
@@ -181,10 +191,12 @@ async def order(ctx):
     embed.add_field(name='play', value='[\'재생\', \'틀어\', \'재생해줘\', \'틀어줘\']\n명령어 뒤에 유튜브 링크를 넣으면 군인기찬이 불러준다.', inline=False)
     embed.add_field(name='pause', value='[\'일시정지\', \'잠깐\']현재 군인기찬이 부르고 있는 노래를 잠시 멈춘다.', inline=False)
     embed.add_field(name='resume', value='[\'다시\', \'다시 틀어줘\', \'다시 재생\']\n일시정지 했던 노래를 군인기찬이가 이어서 부른다.', inline=False)
-    embed.add_field(name='stop', value='[\'멈춰\'\n군인기찬이 부르고 있는 노래를 그만 부른다.', inline=False)
-    embed.add_field(name='hurt', value='[\'아파\'\n아픈 여니를 위해 기찬이가 호오호오 해준다.', inline=False)
+    embed.add_field(name='stop', value='[\'멈춰\']\n군인기찬이 부르고 있는 노래를 그만 부른다.', inline=False)
+    embed.add_field(name='hurt', value='[\'아파\'\]n아픈 여니를 위해 기찬이가 호오호오 해준다.', inline=False)
     embed.add_field(name='what', value='[\'머해\', \'뭐해\', \'뭐하고이써\', \'뭐하고있어\', \'머해?\', \'뭐해?\', \'머행\', \'뭐행\']\n군인기찬이 뭘 하고 있는지 알 수 있다.', inline=False)
     embed.add_field(name='letter', value='???', inline=False)
+    embed.add_field(name='개발중', value='개발중', inline=False)
+    embed.add_field(name='개발중', value='개발중', inline=False)
 
     embed.set_image(url='https://opgg-com-image.akamaized.net/attach/images/20200517115437.917026.jpg')
     
