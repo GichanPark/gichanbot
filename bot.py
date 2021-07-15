@@ -14,7 +14,6 @@ async def on_ready():
     await bot.change_presence(activity=discord.Game(name="여니 생각"))
     print('logged in as \nname: {}\n  id: {}'.format(bot.user.name, bot.user.id))
     print('='*80)
-    ctx.send("차니 접속 완료.")
 
 @bot.command()
 async def empty(ctx, *, txt=None):
@@ -185,12 +184,11 @@ async def order(ctx):
     embed.add_field(name='hurt', value='[\'아파\'\n아픈 여니를 위해 기찬이가 호오호오 해준다.', inline=False)
     embed.add_field(name='what', value='[\'머해\', \'뭐해\', \'뭐하고이써\', \'뭐하고있어\', \'머해?\', \'뭐해?\', \'머행\', \'뭐행\']\n군인기찬이 뭘 하고 있는지 알 수 있다.', inline=False)
     embed.add_field(name='letter', value='???', inline=False)
-    embed.add_field(name='', value='', inline=False)
-    embed.add_field(name='', value='', inline=False)
+    embed.add_field(name='개발중', value='개발중', inline=False)
+    embed.add_field(name='개발중', value='개발중', inline=False)
 
     embed.set_image(url='https://opgg-com-image.akamaized.net/attach/images/20200517115437.917026.jpg')
     
     await ctx.send(embed=embed)
 
-token=os.environ['bot_token']
-bot.run(token)
+bot.run('ODYwMDMzODM0NjM2ODA0MTA2.YN1W7A.iIf3Ludmx7ksIWw07XipBUbWKho')
