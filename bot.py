@@ -57,7 +57,7 @@ async def cute(ctx):
     selected=cute_list[random.randrange(len(cute_list))]
     await ctx.send(selected)
     
-@bot.command(aliases=['골라줘', '뭐먹지'])
+@bot.command(aliases=['골라줘', '뭐먹지', '골라봐'])
 async def select(ctx, *txt):
     random.seed(a=None)
     selected=txt[random.randrange(len(txt))]
@@ -130,7 +130,7 @@ async def resume(ctx):
     else:
         await ctx.send("이미 나오는 중인뎅,,,,,")
         
-@bot.command()
+@bot.command(aliases=['멈춰'])
 async def stop(ctx):
     if bot.voice_clients[0].is_playing():
         bot.voice_clients[0].stop()
@@ -158,18 +158,41 @@ async def test(ctx):
     await ctx.send('test')
     now_hour=time.strftime('%H', time.localtime(time.time()))
     now_minute=time.strftime(('%M', time.localtime(time.time())))
-    await ctx.send(time.strftime('%c', time.localtime(time.time())))
-    msg=f'{now_hour}시{now_minute}분'
-    await ctx.send(msg)
-    if(int(now_hour)>=12):
-        await ctx.send('오후')
-    else:
-        await ctx.send('오전')
+    
 
 # @bot.command(aliases=['머해', '뭐해', '뭐하고이써', '뭐하고있어', '머해?', '뭐해?', '머행', '뭐행'])
 # async def what(ctx):
 #     now_hour=time.strftime('H', time.localtime(time.time()))
 #     if()
+
+
+@bot.command(aliases=['명령어', '도움'])
+async def order(ctx):
+    embed=discord.Embed(title='명령어')
+    embed.add_filed(name='차니야', value='군인기찬이를 부르는 명령어', inline=False)
+    embed.add_file(name='hello', value='[\'안녕\', \'hi\', \'안녕하세요\', \'안뇽\', \'하잉\', \'하이\']\n군인기찬과 인사를 할 수 있다.', inline=False)
+    embed.add_file(name='love', value='[\'사랑해\', \'사랑\', \'러브\', \'조아해\', \'좋아해\', \'사랑행\', \'좋아행\', \'조아행\']\n군인기찬과 사랑을 나눌 수 있다.', inline=False)
+    embed.add_file(name='cute', value='[\'귀여워\', \'귀여웡\', \'기여엉\', \'겨웡\', \'겨워\', \'겹다\']\n군인기찬과 귀엽다는 말을 주고 받는다.', inline=False)
+    embed.add_file(name='select', value='[\'골라줘\', \'뭐먹지\', \'골라봐\']\n선택장애 발생시에 군인기찬에게 고르라고 시킬 수 있다.\n여러개도 가능하다', inline=False)
+    embed.add_file(name='discharge', value='[\'전역 언제야?\', \'전역\', \'꽃신언제신어?\']\n군인기찬의 전역날짜를 볼 수 있다.', inline=False)
+    embed.add_file(name='info', value='[\'정보\']\n군인기찬의 정보를 볼 수 있다.', inline=False)
+    embed.add_file(name='join', value='[\'들어와\']\n여니가 현재 위치한 음성채널로 군인기찬을 소환한다.', inline=False)
+    embed.add_file(name='leave', value='[\'나가\']\n군인기찬이 여니의 명령에 의해 음성채널을 나간다,,,,', inline=False)
+    embed.add_file(name='play', value='[\'재생\', \'틀어\', \'재생해줘\', \'틀어줘\']\n명령어 뒤에 유튜브 링크를 넣으면 군인기찬이 불러준다.', inline=False)
+    embed.add_file(name='pause', value='[\'일시정지\', \'잠깐\']현재 군인기찬이 부르고 있는 노래를 잠시 멈춘다.', inline=False)
+    embed.add_file(name='resume', value='[\'다시\', \'다시 틀어줘\', \'다시 재생\']\n일시정지 했던 노래를 군인기찬이가 이어서 부른다.', inline=False)
+    embed.add_file(name='stop', value='[\'멈춰\'\n군인기찬이 부르고 있는 노래를 그만 부른다.', inline=False)
+    embed.add_file(name='hurt', value='[\'아파\'\n아픈 여니를 위해 기찬이가 호오호오 해준다.', inline=False)
+    embed.add_file(name='what', value='[\'머해\', \'뭐해\', \'뭐하고이써\', \'뭐하고있어\', \'머해?\', \'뭐해?\', \'머행\', \'뭐행\']\n군인기찬이 뭘 하고 있는지 알 수 있다.', inline=False)
+    embed.add_file(name='letter', value='???', inline=False)
+    embed.add_file(name='', value='', inline=False)
+    embed.add_file(name='', value='', inline=False)
+
+    embed.set_footer(text='군인기찬은 여니만을 위해 존재해')
+    embed.set_image(url='https://opgg-com-image.akamaized.net/attach/images/20200517115437.917026.jpg')
+    await ctx.send(embed=embed)
+
+
 
 token=os.environ['bot_token']
 bot.run(token)
