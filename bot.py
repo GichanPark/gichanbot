@@ -170,10 +170,101 @@ async def test(ctx):
     now_minute=time.strftime(('%M', time.localtime(time.time())))
     
 
-# @bot.command(aliases=['머해', '뭐해', '뭐하고이써', '뭐하고있어', '머해?', '뭐해?', '머행', '뭐행'])
-# async def what(ctx):
-#     now_hour=time.strftime('H', time.localtime(time.time()))
-#     if()
+@bot.command(aliases=['머해', '뭐해', '뭐하고이써', '뭐하고있어', '머해?', '뭐해?', '머행', '뭐행'])
+async def what(ctx):
+    now_hour=time.localtime(time.time())
+    now=int(now_hour.tm_hour)
+    await ctx.send(f'지금은 {now}시!')
+    if now<=6:
+        list=['차니 쿠울쿠울 자는 중',
+        '드르렁 푸우푸우 퐈퐈퐈',
+        '코오코오..코오...코어ㅓ어ㅓ거ㅓ걱']
+        random.seed(a=None)
+        selected=list[random.randrange(len(list))]
+        await ctx.send(selected)
+    if now<=7:
+        list=['아침 점호 중이징!',
+        '아침부터 체력단련하는 중~~']
+        random.seed(a=None)
+        selected=list[random.randrange(len(list))]
+        await ctx.send(selected)
+    if now<=8:
+        list=['나 어푸어푸 씻는 중!!',
+        '슥슥삭삭 청소하는 중이징',
+        '냠냠접접 밥 먹는 중이당! 애기도 밥 먹었어?']
+        random.seed(a=None)
+        selected=list[random.randrange(len(list))]
+        await ctx.send(selected)
+    if now<=9:
+        list=['차니 학과준비!',
+        '차니 출장~']
+        random.seed(a=None)
+        selected=list[random.randrange(len(list))]
+        await ctx.send(selected)
+    if now<=12:
+        list=['오전교육 듣는 중....으그극 개노잼 핵 노 잼',
+        '교육...시러.....귀차나...쉬마려...',
+        '자고싶다 자 고 싶 다']
+        random.seed(a=None)
+        selected=list[random.randrange(len(list))]
+        await ctx.send(selected)
+    if now<=13:
+        list=['와구와구 점심 먹는 중',
+        '나 점심 먹는 중이징 여니는 밥 뭐 먹엉??',
+        '나나ㅏ나 밥 먹고 이따!']
+        random.seed(a=None)
+        selected=list[random.randrange(len(list))]
+        await ctx.send(selected)
+    if now<=16:
+        list=['차니 오후교육 듣는 중',
+        '나 또 교육 듣는다 노잼이다 차라리 코딩하고 싶다',
+        '교육 시러 나 잘 래 ㅜㅜ 여니 안고 잘래']
+        random.seed(a=None)
+        selected=list[random.randrange(len(list))]
+        await ctx.send(selected)
+    if now<=17:
+        list=['차니 교보재 반납하는 중',
+        '슈르륵 삭삭 청소하는 중이징~',
+        '삐까뻔쩍 청소하는 중!!']
+        random.seed(a=None)
+        selected=list[random.randrange(len(list))]
+        await ctx.send(selected)
+    if now<=17:
+        list=['운동하는 중이다잇!',
+        '체력단련 하는 중!!',
+        '나 생활관으로 가는 중이징']
+        random.seed(a=None)
+        selected=list[random.randrange(len(list))]
+        await ctx.send(selected)
+    if now<=19:
+        list=['차니 저녁 먹는 중!',
+        '정비하는 중이징',
+        '지금은 자유시간! 책 읽거나 공부할 듯??']
+        random.seed(a=None)
+        selected=list[random.randrange(len(list))]
+        await ctx.send(selected)
+    if now<=20:
+        list=['차니 내무교육 받는 중 ㅜ ㅜ',
+        '아니 무슨 자기 전까지 교육을 받냐 넘 싫다!',
+        '나 또 교육...여니는 머해??']
+        random.seed(a=None)
+        selected=list[random.randrange(len(list))]
+        await ctx.send(selected)
+    if now<=21:
+        list=['차니 수양록 작성 중!',
+        '나나나나 점호 준비 중이징',
+        '아가가각 저녁점호한다!',
+        '기찬 이제 취침준비!']
+        random.seed(a=None)
+        selected=list[random.randrange(len(list))]
+        await ctx.send(selected)
+    else:
+        list=['차니 쿠울쿠울 자는 중',
+        '흠냐흠냐 여니꿈....여니다 흠냐냐ㅑ',
+        '코오코오..코오...코어ㅓ어ㅓ거ㅓ걱 드르러어어ㅓ어엉ㅇ']
+        random.seed(a=None)
+        selected=list[random.randrange(len(list))]
+        await ctx.send(selected)
 
 
 @bot.command(aliases=['명령어', '도움'])
