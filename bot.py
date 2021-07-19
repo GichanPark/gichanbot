@@ -173,7 +173,9 @@ async def test(ctx):
 @bot.command(aliases=['머해', '뭐해', '뭐하고이써', '뭐하고있어', '머해?', '뭐해?', '머행', '뭐행'])
 async def what(ctx):
     now_hour=time.localtime(time.time())
-    now=int(now_hour.tm_hour)
+    now=int(now_hour.tm_hour)+9
+    if now>=24:
+        now-=24
     await ctx.send(f'지금은 {now}시!')
     if now<=6:
         list=['차니 쿠울쿠울 자는 중',
