@@ -207,8 +207,8 @@ async def letter(ctx, txt):
     sub=today-start
     start_s=start.strftime('%Y-%m-%d')
     today_s=today.strftime('%Y-%m-%d')
-    sub_i=int(sub.days)-3
-    await ctx.send(f'입영일:{start_s}, 오늘:{today_s}, 입대: D+{sub_i}')
+    sub_i=int(sub.days)+1
+    await ctx.send(f'입영일:{start_s}, 오늘:{today_s}, 입대: D+{sub_i+3}')
 
     if txt=='전체' or txt=='모두':
         for i in range(sub_i):
